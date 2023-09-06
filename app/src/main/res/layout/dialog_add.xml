@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:padding="5dp"
+    android:background="#FF8A80"
+    android:layout_height="wrap_content">
+
+
+
+
+    <EditText
+        android:id="@+id/dialogName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/teal_700"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:singleLine="true"
+        android:padding="15dp"
+        android:textSize="20sp">
+
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:id="@+id/dialogDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date"
+            android:layout_marginEnd="5dp"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/teal_700"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:padding="15dp"
+            android:inputType="number"
+            android:textSize="18sp">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/dialogMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Month"
+            android:layout_marginEnd="5dp"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/teal_700"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:padding="15dp"
+            android:inputType="number"
+            android:textSize="18sp">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/dialogYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Year"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/teal_700"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:padding="15dp"
+            android:inputType="number"
+            android:textSize="18sp">
+
+        </EditText>
+
+
+    </LinearLayout>
+
+
+
+    <Button
+
+        android:id="@+id/dialogAddThisPerson"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Add this person">
+
+    </Button>
+
+
+
+
+</LinearLayout>
