@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 
@@ -71,6 +72,49 @@ public class Person {
         return years + " years, " + months + " months, " + days + " days";
 
     }
+
+    public String calculateTimeUntilNextBirthday() {
+        Calendar today = Calendar.getInstance();
+        Calendar birthdate = Calendar.getInstance();
+
+        String dob = date + "-" + month + "-" + year;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+
+        try {
+            birthdate.setTime(dateFormat.parse(dob));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return ""; // Handle the error as needed
+        }
+
+        // Set the birthdate's year to the current year to calculate the next birthday
+        birthdate.set(Calendar.YEAR, today.get(Calendar.YEAR));
+
+        // Check if the birthday has already occurred this year
+        if (birthdate.before(today)) {
+            birthdate.set(Calendar.YEAR, today.get(Calendar.YEAR) + 1); // Set it to next year
+        }
+
+        long timeInMillis = birthdate.getTimeInMillis() - today.getTimeInMillis();
+        long daysUntilNextBirthday = timeInMillis / (24 * 60 * 60 * 1000); // Milliseconds to days
+
+        // Calculate the number of months from days
+        long monthsUntilNextBirthday = daysUntilNextBirthday / 30; // Assuming an average month length of 30 days
+
+        return monthsUntilNextBirthday + " months, " + daysUntilNextBirthday % 30 + " days";
+    }
+
+    public static final Comparator<Person> BIRTHDAY_COMPARATOR = new Comparator<Person>() {
+        @Override
+        public int compare(Person person1, Person person2) {
+            // Calculate the remaining time until the next birthday for each person
+            String birthday1 = person1.calculateTimeUntilNextBirthday();
+            String birthday2 = person2.calculateTimeUntilNextBirthday();
+
+            // Compare the remaining time strings (e.g., "2 months, 5 days")
+            return birthday1.compareTo(birthday2);
+        }
+    };
 
     public int getId() {
         return id;

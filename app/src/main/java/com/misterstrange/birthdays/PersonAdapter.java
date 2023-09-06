@@ -60,11 +60,13 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
         // Format the month with an extra zero if it's a single-digit value
         String formattedMonth = (person.getMonth().length() == 1) ? "0" + person.getMonth() : person.getMonth();
 
-        holder.dobTextView.setText(formattedDate + "-" + formattedMonth + "-" + person.getYear());
+        holder.dobTextView.setText("Birthday: "+ formattedDate + "-" + formattedMonth + "-" + person.getYear());
 
 
+        // Calculate and set the remaining days and months until the next birthday
+        String nextBirthday = person.calculateTimeUntilNextBirthday();
+        holder.nextBdayRow.setText("Next Birthday: " + nextBirthday);
 
-        holder.ageTextView.setText("Age: ");
 
 
         String ageWithMonthsAndDays = person.calculateAgeWithMonthsAndDays();
@@ -113,7 +115,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
     static class PersonViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         TextView dobTextView;
-        TextView ageTextView;
+        TextView ageTextView, nextBdayRow;
 
         ImageView imgDelete, imgEdit;
 
@@ -122,6 +124,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
             nameTextView = itemView.findViewById(R.id.nameRow);
             dobTextView = itemView.findViewById(R.id.dobRow);
             ageTextView = itemView.findViewById(R.id.ageRow);
+            nextBdayRow = itemView.findViewById(R.id.nextBdayRow);
             imgDelete = itemView.findViewById(R.id.imgDelete);
             imgEdit = itemView.findViewById(R.id.imgEdit);
         }

@@ -32,7 +32,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     FloatingActionButton fabAdd;
     TextView tvName, tvDob;
-    TextView btnSort, btnSortName, btnSortDate, btnSortMonth, btnSortYoungest, btnSortOldest;
+    TextView btnSort, btnSortName, btnSortDate, btnSortMonth, btnSortYoungest, btnSortOldest, btnSortUpcoming;
 
     MyDatabaseHelper dbHelper;
     private RecyclerView recyclerView;
@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         btnSortName = findViewById(R.id.btnSortName);
         btnSortDate = findViewById(R.id.btnSortDate);
         btnSortMonth = findViewById(R.id.btnSortMonth);
+        btnSortUpcoming = findViewById(R.id.btnSortUpcoming);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -90,6 +91,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        btnSortUpcoming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Sort the personList by upcoming birthday
+                Collections.sort(personList, Person.BIRTHDAY_COMPARATOR);
+
+                adapter.notifyDataSetChanged();
+            }
+        });
 
 
 

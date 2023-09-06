@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="99dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal">
 
 
@@ -16,7 +18,7 @@
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="99dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:layout_marginStart="5dp"
             android:padding="5dp"
@@ -28,7 +30,8 @@
                 android:id="@+id/nameRow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:textStyle="bold"
                 android:textColor="@color/textColor"
                 android:singleLine="true"
                 android:textSize="16sp"
@@ -43,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textColor"
-                android:layout_marginTop="5dp"
+                android:padding="5dp"
                 android:textSize="14sp"
 
                 android:text="DOB"
@@ -57,10 +60,23 @@
                 android:id="@+id/ageRow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:padding="5dp"
                 android:textColor="@color/textColor"
                 android:textSize="14sp"
                 android:text="Age"
+                >
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/nextBdayRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                android:text="Next Birthday"
                 >
 
             </TextView>
@@ -111,7 +127,7 @@
     <View
         android:layout_width="match_parent"
         android:background="@color/textColor"
-        android:layout_height="5dp">
+        android:layout_height="2dp">
 
     </View>
 
