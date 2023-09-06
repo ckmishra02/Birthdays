@@ -111,8 +111,21 @@ public class Person {
             String birthday1 = person1.calculateTimeUntilNextBirthday();
             String birthday2 = person2.calculateTimeUntilNextBirthday();
 
-            // Compare the remaining time strings (e.g., "2 months, 5 days")
-            return birthday1.compareTo(birthday2);
+            // Split the strings into months and days
+            String[] parts1 = birthday1.split(" ");
+            String[] parts2 = birthday2.split(" ");
+
+            int months1 = Integer.parseInt(parts1[0]);
+            int months2 = Integer.parseInt(parts2[0]);
+
+            // Compare months, and if they are equal, compare days
+            if (months1 != months2) {
+                return Integer.compare(months1, months2);
+            } else {
+                int days1 = Integer.parseInt(parts1[2]);
+                int days2 = Integer.parseInt(parts2[2]);
+                return Integer.compare(days1, days2);
+            }
         }
     };
 
